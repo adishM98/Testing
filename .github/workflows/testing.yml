@@ -26,3 +26,4 @@ jobs:
           branch: "auto"
           base: "develop"
           delete-branch : true
+          token: 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
