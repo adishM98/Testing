@@ -1,0 +1,30 @@
+name: Documentation version release
+
+on:
+  workflow_dispatch:
+    inputs:
+      create-branch:
+        description: "Branch name"
+      version:
+        description: "RELEASE_VERSION"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: extract git commmit data
+        uses: rlespinasse/git-commit-data-action@v1
+
+      - name: Create Pull Request
+        id: doc
+        uses: peter-evans/create-pull-request@v3.9.2
+        with:
+          title: "Creating a new version folder ${{ github.event.inputs.version }}"
+          body: "Created a new version folder for version: ${{ github.event.inputs.version }}"
+          branch: ${{ github.event.inputs.create-branch }}
+          base: "develop"
+          delete-branch : true
