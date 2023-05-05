@@ -26,4 +26,4 @@ jobs:
           branch: "auto"
           base: "main"
           delete-branch : true
-          token: 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
+          token: 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
