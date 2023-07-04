@@ -14,7 +14,6 @@ on:
         required: true
       image:
         description: 'Enter the latest image tag'
-        required: true    
 
 jobs:
 
